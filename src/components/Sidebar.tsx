@@ -1,5 +1,10 @@
+import { useSelector } from "react-redux";
+import type { RootState } from "../store/store";
 
 const Sidebar = () => {
+  const isMenuOpen = useSelector((store: RootState) => store.app.isMenuOpen);
+  //Early return
+  if (!isMenuOpen) return null;
   return (
     <div className="p-5 shadow-lg w-48">
       <ul>
@@ -26,7 +31,7 @@ const Sidebar = () => {
         <li>Games</li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
