@@ -1,12 +1,19 @@
+import { useDispatch } from "react-redux";
 import HamBurgerIcon from "../assets/HamBurgerIcon.png";
 import YoutubeIconWithText from "../assets/YoutubeIconWithText.png";
-import userIcon from "../assets/userIcon.png"; // Make sure this path and file exist
+import userIcon from "../assets/userIcon.png";
+import { toggleMenu } from "../store/appSlice";
+
 
 const Header = () => {
+  const dispatch = useDispatch()
+  const toggleHandler = () => {
+    dispatch(toggleMenu() )
+  }
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
       <div className="flex col-span-1">
-        <img className="h-8" src={HamBurgerIcon} alt="menu" />
+        <img className="h-8" src={HamBurgerIcon} alt="menu" onClick={() => toggleHandler()}/>
         <img className="h-8 ml-2" src={YoutubeIconWithText} alt="Youtube" />
       </div>
       <div className="col-span-10 px-10">
