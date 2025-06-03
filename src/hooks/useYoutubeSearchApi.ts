@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
 
 export const useYoutubeSearchApi = () => {
-    // const [searchBarResults, setSearchBarResults] = useState<object>({});
+    const [searchSuggestions, setSearchSuggestions] = useState<string[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>("");
 
 
@@ -10,7 +10,7 @@ export const useYoutubeSearchApi = () => {
         try {
             const response = await fetch(YOUTUBE_SEARCH_API + searchQuery);
             const json = await response.json();
-            console.log(json[1]);
+            setSearchSuggestions(json[1]);
         }
         catch (error) {
             console.error("Error fetching search results:", error);
@@ -26,7 +26,7 @@ export const useYoutubeSearchApi = () => {
         const timer = setTimeout(() => getSearchResultsApi(searchQuery), 200)
         return () => {clearTimeout(timer);}
     }, [searchQuery])
-    return { searchQuery, setSearchQuery };
+    return { searchQuery, setSearchQuery, searchSuggestions };
 
 }
 
