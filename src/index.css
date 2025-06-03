@@ -13,3 +13,7 @@
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+body {
+  padding-top: 80px;
+}
