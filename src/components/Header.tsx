@@ -4,15 +4,13 @@ import YoutubeIconWithText from "../assets/YoutubeIconWithText.png";
 import userIcon from "../assets/userIcon.png";
 import { toggleMenu } from "../store/appSlice";
 import { useYoutubeSearchApi } from "../hooks/useYoutubeSearchApi";
-import { useState } from "react";
 
 const Header = () => {
-  const [showSuggestions, setShowSuggestions] = useState(false);
   const dispatch = useDispatch();
   const toggleHandler = () => {
     dispatch(toggleMenu());
   };
-  const { searchQuery, setSearchQuery, searchSuggestions } =
+  const { searchQuery, setSearchQuery, searchSuggestions, showSuggestions, setShowSuggestions } =
     useYoutubeSearchApi();
   return (
     <div className="grid grid-flow-col p-5 shadow-lg fixed top-0 left-0 right-0 bg-white z-10">
