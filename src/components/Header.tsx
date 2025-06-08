@@ -13,7 +13,7 @@ const Header = () => {
   const { searchQuery, setSearchQuery, searchSuggestions, showSuggestions, setShowSuggestions } =
     useYoutubeSearchApi();
   return (
-    <div className="grid grid-flow-col p-5 shadow-lg fixed top-0 left-0 right-0 bg-white z-10">
+    <div className="grid grid-flow-col p-4 shadow-lg fixed top-0 left-0 right-0 bg-white z-10">
       <div className="flex col-span-1">
         <img
           className="h-8"
