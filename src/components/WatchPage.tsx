@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../store/appSlice";
 import { useSearchParams } from "react-router-dom";
 import CommentsContainer from "./CommentsContainer";
+import LiveChat from "./LiveChat";
 const WatchPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -13,8 +14,8 @@ const WatchPage = () => {
 
   return (
     <>
-      <div className="flex flex-col">
-        <div>
+      <div className="flex flex-col w-full">
+        <div className="flex flex-2/3">
           <iframe
             width="1000"
             height="500"
@@ -25,6 +26,9 @@ const WatchPage = () => {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>
+          <div className="w-full flex-1/3">
+            <LiveChat />
+          </div>
         </div>
         <CommentsContainer />
       </div>
